@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <input type="text" id="city-input" placeholder="Enter city name" />
+            <button onclick="getWeather()">Get Weather</button>
+        </div>
+
+        <!-- User Profile -->
+        <div class="userprofile">
+            <img src="me.jfif" alt="User Profile Picture" class="profile-pic">
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div onclick="showDashboard()">Weather App</div>
+            <div onclick="showDashboard()">Dashboard</div>
+            <div onclick="showTable()">Tables</div>
+        </div>
+
+        <!-- Weather Data -->
+        <div class="weather" id="weather-info">
+            <!-- Weather data will be displayed here -->
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts" id="charts-section">
+            <div>
+                <canvas id="barChart"></canvas>
+                <p>Vertical Bar Chart</p>
+            </div>
+            <div>
+                <canvas id="doughnutChart"></canvas>
+                <p>Doughnut Chart</p>
+            </div>
+            <div>
+                <canvas id="lineChart"></canvas>
+                <p>Line Chart</p>
+            </div>
+        </div>
+
+        <!-- 5-Day Forecast Table -->
+        <div class="table-container" id="table-container">
+            <h2>5-Day Weather Forecast</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Temperature (°C)</th>
+                        <th>Weather Condition</th>
+                        <th>Humidity (%)</th>
+                        <th>Wind Speed (m/s)</th>
+                    </tr>
+                </thead>
+                <tbody id="forecast-table-body">
+                    <!-- Forecast data will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- chatbot -->
+    <div class="chatbot">
+        <div class="chatbot-header">Weather Chatbot</div>
+        <div class="chatbot-body" id="chatbot-body">
+            <!-- Chatbot conversation goes here -->
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chat-input" placeholder="Ask me about the weather..." />
+            <button onclick="askChatbot()">Send</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>

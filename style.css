@@ -1,0 +1,252 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('weather.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header userprofile"
+        "sidebar weather weather"
+        "sidebar charts charts";
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #0a2139;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar div {
+    padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.sidebar div:hover {
+    background-color: #0a2139;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #0a2139;
+    color: white;
+    border-radius: 10px;
+}
+
+.header input {
+    width: 250px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.header button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header button:hover {
+    background-color: #218838;
+}
+
+.userprofile {
+    grid-area: userprofile;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #0a2139;
+    background-color: lightgray; 
+    object-fit: cover; 
+}
+
+.weather {
+    grid-area: weather;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #0a2139;
+    border-radius: 10px;
+    height: 200px;
+    font-size: 24px;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #e7f3ff;
+    color: #333;
+}
+
+.charts {
+    grid-area: charts;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.charts div {
+    background-color: white;
+    border: 2px solid #0a2139;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    font-size: 18px;
+    color: #333;
+    transition: transform 0.3s;
+}
+
+.charts div:hover {
+    transform: scale(1.05);
+}
+
+.table-container {
+    grid-area: charts;
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #0a2139;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    background-color: #e7f3ff;
+}
+
+/* //chatbot */
+
+.chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbot-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.chatbot-body {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.chatbot-footer {
+    padding: 10px;
+    display: flex;
+}
+
+.chatbot-footer input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.chatbot-footer button {
+    margin-left: 5px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "userprofile"
+            "weather"
+            "charts"
+            "sidebar";
+        grid-template-columns: 1fr;
+        width: 100vw;
+        height: auto;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+
+    .charts {
+        grid-template-columns: 1fr;
+    }
+}
